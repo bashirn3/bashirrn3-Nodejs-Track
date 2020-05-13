@@ -1,0 +1,28 @@
+{
+  "name": "bashirrn3-nodejs-track",
+  "version": "1.0.0",
+  "description": "A repo for startng tutoring app",
+  "main": "app.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.13",
+    "nodemon": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bashirn3/bashirrn3-Nodejs-Track.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bashirn3/bashirrn3-Nodejs-Track/issues"
+  },
+  "homepage": "https://github.com/bashirn3/bashirrn3-Nodejs-Track#readme"
+}
