@@ -73,3 +73,72 @@ exports.logIn = (req, res, next) =>{
   })
   .catch(err => console.log(err))
 }
+
+exports.grantAdminAccess = async (req, res, next) => {
+  try{
+    const token  = req.body.token
+    if (!token || token == undefined) {
+      return res
+      .status(404).send({status: false, message: "A valid token is required to access this route"})
+    }
+    const user = await User.findOne({accessToken: token})
+    const role = user.role
+    if(role !== 'admin'){
+      return res
+      .status(401).send({
+        data: false,
+        message: "You do not have access to this route"
+      })
+    }
+    next();
+  } catch(error){
+    next(error)
+  }
+
+}
+
+exports.grantTutorAccess = async (req, res, next) => {
+  try{
+    const token  = req.body.token
+    if (!token || token == undefined) {
+      return res
+      .status(404).send({status: false, message: "A valid token is required to access this route"})
+    }
+    const user = await User.findOne({accessToken: token})
+    const role = user.role
+    if(role !== 'tutor'){
+      return res
+      .status(401).send({
+        data: false,
+        message: "You do not have access to this route"
+      })
+    }
+    next();
+  } catch(error){
+    next(error)
+  }
+
+}
+
+exports.grantUserAccess = async (req, res, next) => {
+  try{
+    const token  = req.body.token
+    if (!token || token == undefined) {
+      return res
+      .status(404).send({status: false, message: "A valid token is required to access this route"})
+    }
+    const user = await User.findOne({accessToken: token})
+    const role = user.role
+    if(!role){
+      return res
+      .status(401).send({
+        data: false,
+        message: "You do not have access to this route"
+      })
+    }
+    next();
+  } catch(error){
+    next(error)
+  }
+
+}
