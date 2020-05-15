@@ -81,7 +81,7 @@ exports.grantAdminAccess = async (req, res, next) => {
       return res
       .status(404).send({status: false, message: "A valid token is required to access this route"})
     }
-    const user = await User.findOne({accessToken: token})
+    let user = await User.findOne({accessToken: token})
     const role = user.role
     if(role !== 'admin'){
       return res
